@@ -2,9 +2,12 @@ let distancia = 0
 basic.forever(function () {
     maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 40)
     distancia = maqueen.Ultrasonic(PingUnit.Centimeters)
-    if (distancia < 9) {
+    if (distancia < 15) {
         basic.showString("" + (distancia))
-    } else {
+    }
+    if (distancia < 6) {
+        basic.showString("" + (distancia))
+        maqueen.motorStop(maqueen.Motors.All)
         basic.showLeds(`
             # . # . #
             . # # # .
@@ -13,5 +16,4 @@ basic.forever(function () {
             # . # . #
             `)
     }
-    maqueen.motorStop(maqueen.Motors.All)
 })

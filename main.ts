@@ -8,6 +8,7 @@ basic.forever(function () {
     if (distancia < 6) {
         basic.showString("" + (distancia))
         maqueen.motorStop(maqueen.Motors.All)
+        basic.pause(5000)
         basic.showLeds(`
             # . # . #
             . # # # .
